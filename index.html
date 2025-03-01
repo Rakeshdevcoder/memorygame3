@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer type="module"></script>
+  </head>
+  <body>
+    <div class="fullpage-wrapper">
+      <div class="game-layout">
+        <!-- Choice Section -->
+        <div class="choice">
+          <form>
+            <select name="choice" class="select-cells-number">
+              <option value="16" selected>16</option>
+              <option value="36">36</option>
+              <option value="64">64</option>
+            </select>
+          </form>
+        </div>
+        <!-- Playground Section -->
+        <div class="playground"></div>
+        <!-- Features Section -->
+        <div class="features">
+          <div class="timer">
+            <span>00</span>min <span>00</span>sec
+          </div>
+          <button class="btn restart-btn">New Game</button>
+        </div>
+      </div>
+      <!-- Modal (remains fixed and hidden until triggered) -->
+      <div class="modal">
+        <div class="modal-content">
+          <h2 class="modal-heading">Game Over</h2>
+          <div class="modal-time">
+            <span>Time Spent: </span>
+          </div>
+          <h3 class="modal-text">
+            Wrong Attempt : <span class="wrong">5</span>
+          </h3>
+          <button class="btn modal-btn">Start Again</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

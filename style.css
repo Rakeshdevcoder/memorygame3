@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  --grid-cell: 6;
+  --white: #fff;
+  --light-grey: #555;
+  --gray: #222;
+  --blue: #119ec9;
+  --gap: 1rem;
+  --time: 0.6s;
+  --vh: 1vh;
+}
+
+/* Full-page wrapper centers everything vertically */
+.fullpage-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+/* This new wrapper arranges the game sections in a column */
+.game-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap);
+}
+
+.select-cells-number {
+  background: var(--white);
+  color: var(--gray);
+  border: 1px solid var(--light-grey);
+  border-radius: var(--gap);
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.select-cells-number:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0.3rem var(--blue);
+}
+
+/* Playground styling remains the same */
+.playground {
+  background-color: #f7eedd;
+  width: 80vmin;
+  height: 80vmin;
+  border-radius: var(--gap);
+  display: grid;
+  gap: var(--gap);
+  padding: var(--gap);
+  margin: 0 auto;
+}
+
+/* Rest of your CSS remains unchanged */
+.card {
+  position: relative;
+  background-color: var(--white);
+  box-shadow: 0 0 0.3rem #eee;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  cursor: pointer;
+  perspective: 100rem;
+  transform-style: preserve-3d;
+  transition: transform var(--time) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-change {
+  transform: rotateY(180deg);
+}
+
+.card.change img {
+  transform: rotateY(0deg);
+  transition: transform var(--time) cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+}
+
+.card.stop,
+.card-pause {
+  pointer-events: none;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  border-radius: inherit;
+  transform: rotateY(270deg);
+  transition: transform var(--time) cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(119, 118, 115, 0.604);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--time) 1s;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: var(--gap);
+  width: 40rem;
+  aspect-ratio: 1;
+  background-color: rgba(255, 255, 255, 0.863);
+  border-radius: var(--gap);
+}
+
+.modal-heading {
+  font-size: 4rem;
+  color: var(--light-grey);
+  margin-bottom: var(--gap);
+}
+
+.modal-time {
+  display: flex;
+  align-items: center;
+  column-gap: var(--gap);
+}
+
+.modal-time > span {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: var(--light-grey);
+  font-weight: 100;
+}
+
+.wrong {
+  display: block;
+  margin: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.btn {
+  box-sizing: content-box;
+  padding: 0.5rem 1rem;
+  background-color: var(--blue);
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--white);
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
+.yes-btn,
+.cancel-btn {
+  margin-inline: 0.5rem;
+  width: 7rem;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  column-gap: 3rem;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.features .restart-btn {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.timer {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.3rem;
+  color: var(--blue);
+}
+
+.timer span {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.6rem;
+  width: 2.7rem;
+}
+
+.timer span:last-child {
+  margin-left: 0.5rem;
+}
